@@ -28,13 +28,8 @@ exports.start = () => {
             name: "choice",
             choices: [
                 "View All Employees",
-                "View All Roles",
-                "View Employees by Department",
-                "View Employees by Manager",
                 "Add Employee",
                 "Remove Employee",
-                "Update Employee Role",
-                "Update Employee Manager",
                 "EXIT"                
             ]
         }
@@ -43,26 +38,17 @@ exports.start = () => {
       if(answer.choice === "View All Employees") {
         view.viewAllEmployees();
       }
-      else if(answer.choice === "View All Roles") {
-        viewAllRoles();
-      }
-      else if(answer.choice === "View Employees by Department") {
-        viewEmpByDept();
-      }
-      else if(answer.choice === "View Employees by Manager") {
-        viewEmpByManager();
-      }
       else if(answer.choice === "Add Employee") {
         add.addEmployee();
       }
       else if(answer.choice === "Remove Employee") {
-        removeEmployee();
+        remove.removeEmployee();
       }
       else if(answer.choice === "Update Employee Role") {
-        updateRole();
+        update.updateRole();
       }
       else if(answer.choice === "Update Employee Manager") {
-        updateManager ();
+        update.updateManager ();
       }
       else if(answer.choice === "EXIT") {
         connection.end();
