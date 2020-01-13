@@ -8,7 +8,7 @@ var view = require("./lib/view");
 
 var connection = mysql.createConnection({
   host: "localhost",
-  port: 8080,
+  port: 3306,
   user: "root",
   password: "Guernica4*",
   database: "company_db"
@@ -17,10 +17,10 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
   if (err) throw err;
   console.log("connected as id " + connection.threadId + "\n");
-  start();
+  exports.start();
 });
 
-function start() {
+exports.start = () => {
     inq.prompt([
         {
             type: "list",
@@ -40,32 +40,32 @@ function start() {
             ]
         }
     ])
-    .then(function(answers) {
-      if(answers.choice === "View All Employees") {
-        viewAllEmployees();
+    .then(function(answer) {
+      if(answer.choice === "View All Employees") {
+        view.viewAllEmployees();
       }
-      else if(answers.choice === "View All Roles") {
+      else if(answer.choice === "View All Roles") {
         viewAllRoles();
       }
-      else if(answers.choice === "View Employees by Department") {
+      else if(answer.choice === "View Employees by Department") {
         viewEmpByDept();
       }
-      else if(answers.choice === "View Employees by Manager") {
-        viewEmpByMan();
+      else if(answer.choice === "View Employees by Manager") {
+        viewEmpByManager();
       }
-      else if(answers.choice === "Add Employee") {
-        addEmployee();
+      else if(answer.choice === "Add Employee") {
+        add.addEmployee();
       }
-      else if(answers.choice === "Remove Employee") {
+      else if(answer.choice === "Remove Employee") {
         removeEmployee();
       }
-      else if(answers.choice === "Update Employee Role") {
+      else if(answer.choice === "Update Employee Role") {
         updateRole();
       }
-      else if(answers.choice === "Update Employee Manager") {
+      else if(answer.choice === "Update Employee Manager") {
         updateManager ();
       }
-      else if(answers.choice === "EXIT") {
+      else if(answer.choice === "EXIT") {
         connection.end();
       }
     });
