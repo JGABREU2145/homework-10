@@ -35,8 +35,7 @@ exports.start = () => {
                 "Remove Employee",
                 "Update Employee Role",
                 "Update Employee Manager",
-                "EXIT"
-                
+                "EXIT"                
             ]
         }
     ])
