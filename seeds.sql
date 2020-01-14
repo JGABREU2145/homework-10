@@ -39,3 +39,8 @@ INSERT INTO company_role (title, salary, dept_id) VALUES
 ('Front of House Manager', 40000.00, 2),
 ('Host', 30000.00, 2),
 ('Server', 20000.00, 1);
+
+INSERT INTO employees (first_name, last_name, emp_role_id, manager_id) VALUES
+('John', 'Smith', 1, null),
+('Jane', 'Smith', 6, 1),
+('Derek', 'Fisher', 2, null);
