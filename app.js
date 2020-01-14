@@ -52,6 +52,7 @@ exports.start = () => {
       }
       else if(answer.choice === "EXIT") {
         connection.end();
+        return
       }
     });
     
