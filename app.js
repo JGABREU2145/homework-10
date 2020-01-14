@@ -2,7 +2,6 @@ var mysql = require("mysql");
 var inq = require("inquirer");
 var table = require("console.table");
 var add = require("./lib/add");
-var remove = require("./lib/remove");
 var update = require("./lib/update");
 var view = require("./lib/view");
 
@@ -29,7 +28,7 @@ exports.start = () => {
             choices: [
                 "View All Employees",
                 "Add Employee",
-                "Remove Employee",
+                "Update Employee Role",
                 "EXIT"                
             ]
         }
@@ -40,15 +39,9 @@ exports.start = () => {
       }
       else if(answer.choice === "Add Employee") {
         add.addEmployee();
-      }
-      else if(answer.choice === "Remove Employee") {
-        remove.removeEmployee();
-      }
+      }      
       else if(answer.choice === "Update Employee Role") {
         update.updateRole();
-      }
-      else if(answer.choice === "Update Employee Manager") {
-        update.updateManager ();
       }
       else if(answer.choice === "EXIT") {
         connection.end();
